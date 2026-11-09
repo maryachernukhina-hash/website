@@ -1,0 +1,77 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Masha · mariexnoire</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one screen, no scroll. Portrait of Masha on the left, a short intro and two ways to reach her on the right; stacks on phones. */
+:root {
+  --bg: #eef0f3; --surface: #ffffff; --ink: #1b2233; --muted: #5a6274; --line: #d6dae2;
+  --amber: #c8611d; --amber-soft: #f6e3d3; --placeholder: #9a4a12;
+  --display: "Gloock", Georgia, "Times New Roman", serif;
+  --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --mono: "DM Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #121722; --surface: #1a2130; --ink: #ecedf1; --muted: #a2a9b8; --line: #2c3446; --amber: #f0954f; --amber-soft: #3a2a20; --placeholder: #f7b27a; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #121722; --surface: #1a2130; --ink: #ecedf1; --muted: #a2a9b8; --line: #2c3446; --amber: #f0954f; --amber-soft: #3a2a20; --placeholder: #f7b27a; color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; overflow: hidden; }
+.page {
+  height: 100%; display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 480px);
+  justify-content: center; align-items: center; gap: clamp(32px, 6vw, 80px);
+  padding-block: 24px;
+  padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+.photo {
+  margin: 0; width: 100%; max-width: 100%; aspect-ratio: 4 / 5; max-height: calc(100vh - 48px);
+  border-radius: 8px; overflow: hidden; background: var(--amber-soft);
+  border: 1.5px dashed var(--placeholder); display: grid; place-items: center; text-align: center;
+}
+.photo span { font-family: var(--mono); font-size: 13px; color: var(--placeholder); padding: 16px; }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.text { min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(48px, 7vw, 84px); line-height: .95; margin: 0; }
+h1 em { font-style: normal; color: var(--amber); }
+p { margin: 0; max-width: 46ch; }
+.reach { border-top: 1px solid var(--line); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+.reach strong { font-size: 15px; }
+.contact { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 6px; border: 1px solid var(--ink); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15px; background: transparent; }
+.chip.primary { background: var(--ink); color: var(--bg); }
+.chip small { font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+.ph { color: var(--placeholder); background: var(--amber-soft); border: 1px dashed var(--placeholder); border-radius: 4px; padding: 1px 8px; font-family: var(--mono); font-size: 13px; font-weight: 500; user-select: all; }
+a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+@media (max-width: 760px) {
+  .page { grid-template-columns: 1fr; align-content: center; gap: 20px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .photo { width: auto; height: 30vh; justify-self: start; }
+  .text { gap: 12px; }
+  body { font-size: 15px; }
+}
+</style>
+
+<main class="page">
+  <figure class="photo" aria-label="Photo of Masha">
+    <!-- YOUR PHOTO goes here. Links to outside images are blocked on this page, so the photo must be embedded in the file (send it to Claude to do this). -->
+    <span>[ your photo here ]</span>
+  </figure>
+
+  <div class="text">
+    <div class="eyebrow">UGC creator · Amsterdam</div>
+    <h1>Masha<em>.</em></h1>
+    <p>I create photos and short videos that show products in real, everyday life: outfits, home, food, beauty, travel and whatever fits a regular week in Amsterdam. I make UGC for brands and collaborate on Instagram, in English, German or Dutch.</p>
+    <div class="reach">
+      <strong>Have a product or an idea? Feel free to reach out.</strong>
+      <div class="contact">
+        <a class="chip primary" href="https://ig.me/m/mariexnoire" target="_blank" rel="noopener"><small>DM</small>@mariexnoire</a>
+        <span class="chip"><small>Email</small><span class="ph">[ your email ]</span></span>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body></html>
