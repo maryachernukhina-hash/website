@@ -1,6 +1,9 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Masha · mariexnoire</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
@@ -18,6 +21,7 @@
 }
 :root[data-theme="dark"] { --bg: #121722; --surface: #1a2130; --ink: #ecedf1; --muted: #a2a9b8; --line: #2c3446; --amber: #f0954f; --amber-soft: #3a2a20; --placeholder: #f7b27a; color-scheme: dark; }
 * { box-sizing: border-box; }
+body { margin: 0; }
 html, body { height: 100%; }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; overflow: hidden; }
 .page {
@@ -28,8 +32,7 @@ body { background: var(--bg); color: var(--ink); font-family: var(--body); font-
 }
 .photo {
   margin: 0; width: 100%; max-width: 100%; aspect-ratio: 4 / 5; max-height: calc(100vh - 48px);
-  border-radius: 8px; overflow: hidden; background: var(--amber-soft);
-  border: 1.5px dashed var(--placeholder); display: grid; place-items: center; text-align: center;
+  border-radius: 8px; overflow: hidden; background: var(--line); display: grid; place-items: center; text-align: center;
 }
 .photo span { font-family: var(--mono); font-size: 13px; color: var(--placeholder); padding: 16px; }
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -54,11 +57,13 @@ a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
   body { font-size: 15px; }
 }
 </style>
+</head>
+<body>
+
 
 <main class="page">
   <figure class="photo" aria-label="Photo of Masha">
-    <!-- YOUR PHOTO goes here. Links to outside images are blocked on this page, so the photo must be embedded in the file (send it to Claude to do this). -->
-    <span>[ your photo here ]</span>
+    <img src="profilepic.jpg" alt="Masha, UGC creator in Amsterdam">
   </figure>
 
   <div class="text">
@@ -69,10 +74,10 @@ a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
       <strong>Have a product or an idea? Feel free to reach out.</strong>
       <div class="contact">
         <a class="chip primary" href="https://ig.me/m/mariexnoire" target="_blank" rel="noopener"><small>DM</small>@mariexnoire</a>
-        <span class="chip"><small>Email</small><span class="ph">[ your email ]</span></span>
+        <span class="chip"><small>Email</small><a href="mailto:marya.chernukhina@gmail.com" style="color:inherit">marya.chernukhina@gmail.com</a></span>
       </div>
     </div>
   </div>
 </main>
-
-</body></html>
+</body>
+</html>
