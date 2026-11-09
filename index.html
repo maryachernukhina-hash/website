@@ -10,7 +10,7 @@
 <style>
 /* Layout: one pink screen. Faded canal scene in the background, portrait and intro centered on top. Single look by choice (pink in both themes). */
 :root {
-  --bg: #f3d7d9; --ink: #2e1c1f; --muted: #6e4f53; --line: #e2b9bd;
+  --bg: #f4e4e2; --sky-top: #c9d9e6; --sky-mid: #f1e3e4; --ink: #2e1c1f; --muted: #6e4f53; --line: #e2c6c8;
   --rose: #9c3b3f; --cream: #fff4f6;
   --display: "Gloock", Georgia, "Times New Roman", serif;
   --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
@@ -19,26 +19,26 @@
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; overflow: hidden; position: relative; }
-.skyline { position: fixed; left: 0; right: 0; bottom: 0; width: 100%; height: 48vh; display: block; z-index: 0; opacity: .33; filter: saturate(.85); }
-.sky { position: fixed; left: 0; right: 0; top: 0; width: 100%; height: 30vh; display: block; z-index: 0; opacity: .55; }
-.veil { position: fixed; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(243,215,217,0) 0%, rgba(243,215,217,.6) 28%, rgba(243,215,217,.6) 52%, rgba(243,215,217,0) 100%); pointer-events: none; }
+body { margin: 0; background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, var(--bg) 100%); background-attachment: fixed; color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; overflow: hidden; position: relative; }
+.skyline { position: fixed; left: 0; right: 0; bottom: 0; width: 100%; height: 48vh; display: block; z-index: 0; opacity: .62; filter: saturate(.9); }
+.sky { position: fixed; left: 0; right: 0; top: 0; width: 100%; height: 30vh; display: block; z-index: 0; }
+.veil { position: fixed; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(241,227,228,0) 15%, rgba(241,227,228,.55) 35%, rgba(241,227,228,.35) 55%, rgba(241,227,228,0) 75%); pointer-events: none; }
 .page {
   position: relative; z-index: 1;
   height: 100%; min-height: 0; display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 480px);
   justify-content: center; align-items: center; gap: clamp(32px, 6vw, 80px);
-  padding-block: 24px 12px;
+  padding-block: 64px 26vh;
   padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px));
 }
 .photo {
-  margin: 0; width: 100%; max-width: 100%; aspect-ratio: 4 / 5; max-height: calc(100vh - 96px);
+  margin: 0; width: 100%; max-width: 100%; aspect-ratio: 4 / 5; max-height: calc(68vh - 60px);
   border-radius: 4px; overflow: hidden; background: var(--line);
   display: grid; place-items: center; text-align: center;
 }
 .photo span { font-family: var(--mono); font-size: 13px; color: var(--rose); padding: 16px; }
-.photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.92) sepia(.08); }
-.photo { position: relative; border-radius: 6px; background: transparent; -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent), linear-gradient(180deg, transparent, #000 7%, #000 88%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent), linear-gradient(180deg, transparent, #000 7%, #000 88%, transparent); mask-composite: intersect; }
-.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(243,215,217,.0) 55%, rgba(243,215,217,.35)); pointer-events: none; }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo { position: relative; border: 8px solid #ffffff; border-radius: 3px; background: #ffffff; box-shadow: 0 1px 2px rgba(46,28,31,.08), 0 22px 44px -22px rgba(46,28,31,.35); }
+
 .photo span { background: var(--line); width: 100%; height: 100%; display: grid; place-items: center; }
 .text { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 .eyebrow { white-space: nowrap; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
@@ -56,8 +56,8 @@ a:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
 @media (max-width: 760px) {
   .skyline { height: 38vh; }
   .sky { height: 18vh; }
-  .page { height: 100%; grid-template-columns: 1fr; align-content: center; gap: 16px; padding-block: 16px 8px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-  .photo { width: auto; height: 21vh; justify-self: start; }
+  .page { height: 100%; grid-template-columns: 1fr; align-content: center; gap: 16px; padding-block: 12px 22vh; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .photo { width: auto; height: 19vh; justify-self: start; border-width: 5px; }
   .text { gap: 10px; }
   .eyebrow { font-size: 11px; letter-spacing: .05em; }
   body { font-size: 14.5px; line-height: 1.5; }
@@ -66,7 +66,7 @@ a:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
 </style>
 </head>
 <body>
-<svg class="sky" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="#ffffff"><ellipse cx="170" cy="90" rx="60" ry="23"/><ellipse cx="126" cy="98" rx="39" ry="17"/><ellipse cx="214" cy="96" rx="44" ry="18"/><ellipse cx="154" cy="74" rx="36" ry="21"/><ellipse cx="191" cy="77" rx="34" ry="18"/></g><g fill="#ffffff"><ellipse cx="520" cy="55" rx="41" ry="16"/><ellipse cx="489" cy="60" rx="27" ry="12"/><ellipse cx="551" cy="60" rx="31" ry="13"/><ellipse cx="509" cy="44" rx="25" ry="14"/><ellipse cx="534" cy="46" rx="23" ry="13"/></g><g fill="#ffffff"><ellipse cx="860" cy="110" rx="51" ry="20"/><ellipse cx="823" cy="117" rx="33" ry="14"/><ellipse cx="897" cy="116" rx="37" ry="15"/><ellipse cx="847" cy="97" rx="31" ry="18"/><ellipse cx="878" cy="99" rx="29" ry="15"/></g><g fill="#ffffff"><ellipse cx="1180" cy="60" rx="64" ry="25"/><ellipse cx="1132" cy="68" rx="42" ry="18"/><ellipse cx="1228" cy="67" rx="48" ry="20"/><ellipse cx="1163" cy="43" rx="39" ry="22"/><ellipse cx="1202" cy="46" rx="36" ry="20"/></g><g fill="#ffffff"><ellipse cx="1360" cy="150" rx="37" ry="14"/><ellipse cx="1333" cy="155" rx="24" ry="10"/><ellipse cx="1387" cy="154" rx="27" ry="11"/><ellipse cx="1350" cy="140" rx="22" ry="13"/><ellipse cx="1373" cy="142" rx="21" ry="11"/></g><g fill="#ffffff"><ellipse cx="330" cy="180" rx="32" ry="13"/><ellipse cx="306" cy="184" rx="21" ry="9"/><ellipse cx="354" cy="184" rx="24" ry="10"/><ellipse cx="322" cy="172" rx="20" ry="11"/><ellipse cx="341" cy="173" rx="18" ry="10"/></g><path d="M628.0,150.0 q6.0,-7.0 12.0,0 q6.0,-7.0 12.0,0" fill="none" stroke="#5a4249" stroke-width="1.8" stroke-linecap="round"/><path d="M662.4,138.0 q4.8,-5.6 9.6,0 q4.8,-5.6 9.6,0" fill="none" stroke="#5a4249" stroke-width="1.4" stroke-linecap="round"/><path d="M689.2,160.0 q5.4,-6.3 10.8,0 q5.4,-6.3 10.8,0" fill="none" stroke="#5a4249" stroke-width="1.6" stroke-linecap="round"/><path d="M1001.6,180.0 q4.2,-4.9 8.4,0 q4.2,-4.9 8.4,0" fill="none" stroke="#5a4249" stroke-width="1.3" stroke-linecap="round"/><path d="M1027.8,170.0 q3.6,-4.2 7.2,0 q3.6,-4.2 7.2,0" fill="none" stroke="#5a4249" stroke-width="1.1" stroke-linecap="round"/><path d="M252.8,140.0 q3.6,-4.2 7.2,0 q3.6,-4.2 7.2,0" fill="none" stroke="#5a4249" stroke-width="1.1" stroke-linecap="round"/><path d="M740,104 L986,73" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".9"/><g transform="translate(1000,70) rotate(-7)" fill="#5a4249"><path d="M-16,0 H14 q6,0 6,2 q0,2 -6,2 H-16Z"/><path d="M-2,1 L-10,-9 H-6 L6,1Z"/><path d="M-2,3 L-10,13 H-6 L6,3Z"/><path d="M-16,0 L-20,-6 H-17 L-11,1Z"/></g><path d="M490,56 L342,42" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".8"/><g transform="translate(330,40) rotate(185) scale(.6)" fill="#5a4249"><path d="M-16,0 H14 q6,0 6,2 q0,2 -6,2 H-16Z"/><path d="M-2,1 L-10,-9 H-6 L6,1Z"/><path d="M-2,3 L-10,13 H-6 L6,3Z"/><path d="M-16,0 L-20,-6 H-17 L-11,1Z"/></g></svg><svg class="skyline" viewBox="0 0 1440 310" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="#7a5544">
+<svg class="sky" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="#ffffff" opacity=".95"><ellipse cx="150" cy="80" rx="60" ry="23"/><ellipse cx="106" cy="88" rx="39" ry="17"/><ellipse cx="194" cy="86" rx="44" ry="18"/><ellipse cx="134" cy="64" rx="36" ry="21"/><ellipse cx="171" cy="67" rx="34" ry="18"/></g><g fill="#ffffff" opacity=".95"><ellipse cx="560" cy="34" rx="37" ry="14"/><ellipse cx="533" cy="39" rx="24" ry="10"/><ellipse cx="587" cy="38" rx="27" ry="11"/><ellipse cx="550" cy="24" rx="22" ry="13"/><ellipse cx="573" cy="26" rx="21" ry="11"/></g><g fill="#ffffff" opacity=".95"><ellipse cx="900" cy="40" rx="41" ry="16"/><ellipse cx="869" cy="45" rx="27" ry="12"/><ellipse cx="931" cy="44" rx="31" ry="13"/><ellipse cx="889" cy="29" rx="25" ry="14"/><ellipse cx="914" cy="31" rx="23" ry="13"/></g><g fill="#ffffff" opacity=".95"><ellipse cx="1250" cy="70" rx="64" ry="25"/><ellipse cx="1202" cy="78" rx="42" ry="18"/><ellipse cx="1298" cy="77" rx="48" ry="20"/><ellipse cx="1233" cy="53" rx="39" ry="22"/><ellipse cx="1272" cy="56" rx="36" ry="20"/></g><g fill="#ffffff" opacity=".95"><ellipse cx="1380" cy="170" rx="37" ry="14"/><ellipse cx="1353" cy="175" rx="24" ry="10"/><ellipse cx="1407" cy="174" rx="27" ry="11"/><ellipse cx="1370" cy="160" rx="22" ry="13"/><ellipse cx="1393" cy="162" rx="21" ry="11"/></g><g fill="#ffffff" opacity=".95"><ellipse cx="80" cy="190" rx="37" ry="14"/><ellipse cx="53" cy="195" rx="24" ry="10"/><ellipse cx="107" cy="194" rx="27" ry="11"/><ellipse cx="70" cy="180" rx="22" ry="13"/><ellipse cx="93" cy="182" rx="21" ry="11"/></g><path d="M1218.0,150.0 q6.0,-7.0 12.0,0 q6.0,-7.0 12.0,0" fill="none" stroke="#4a5866" stroke-width="1.8" stroke-linecap="round"/><path d="M1252.4,138.0 q4.8,-5.6 9.6,0 q4.8,-5.6 9.6,0" fill="none" stroke="#4a5866" stroke-width="1.4" stroke-linecap="round"/><path d="M1279.2,160.0 q5.4,-6.3 10.8,0 q5.4,-6.3 10.8,0" fill="none" stroke="#4a5866" stroke-width="1.6" stroke-linecap="round"/><path d="M190.4,170.0 q4.8,-5.6 9.6,0 q4.8,-5.6 9.6,0" fill="none" stroke="#4a5866" stroke-width="1.4" stroke-linecap="round"/><path d="M220.2,160.0 q3.9,-4.5 7.8,0 q3.9,-4.5 7.8,0" fill="none" stroke="#4a5866" stroke-width="1.2" stroke-linecap="round"/><path d="M102.8,140.0 q3.6,-4.2 7.2,0 q3.6,-4.2 7.2,0" fill="none" stroke="#4a5866" stroke-width="1.1" stroke-linecap="round"/><path d="M920,52 L1106,29" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".9"/><g transform="translate(1120,26) rotate(-7)" fill="#4a5866"><path d="M-16,0 H14 q6,0 6,2 q0,2 -6,2 H-16Z"/><path d="M-2,1 L-10,-9 H-6 L6,1Z"/><path d="M-2,3 L-10,13 H-6 L6,3Z"/><path d="M-16,0 L-20,-6 H-17 L-11,1Z"/></g><path d="M430,36 L312,24" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".8"/><g transform="translate(300,22) rotate(185) scale(.6)" fill="#4a5866"><path d="M-16,0 H14 q6,0 6,2 q0,2 -6,2 H-16Z"/><path d="M-2,1 L-10,-9 H-6 L6,1Z"/><path d="M-2,3 L-10,13 H-6 L6,3Z"/><path d="M-16,0 L-20,-6 H-17 L-11,1Z"/></g></svg><svg class="skyline" viewBox="0 0 1440 310" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="#7a5544">
 <rect x="662" y="134" width="36" height="128"/>
 <rect x="666" y="112" width="28" height="24" fill="#8a6350"/>
 <rect x="670" y="92" width="20" height="22" fill="#3c6b70"/>
